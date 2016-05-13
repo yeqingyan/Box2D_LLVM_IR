@@ -523,7 +523,7 @@ int main(int, char**)
 	if (test)
 	{
 		delete test;
-		test = nullptr;
+		test = NULL;
 	}
 
 	g_debugDraw.Destroy();
