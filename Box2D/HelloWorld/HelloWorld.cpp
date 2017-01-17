@@ -20,6 +20,24 @@
 
 #include <stdio.h>
 
+// Marker test
+#ifdef __cplusplus
+extern "C" {
+#endif
+void marker(int x, int from, int to) {
+  return;
+}
+#ifdef __cplusplus
+}
+#endif
+
+void test(int i, int j) {
+	int c = 4;
+	int b = i + j;
+	marker(c, 3, 8);
+	printf("b = %d\n", b);
+}
+
 // This is a simple example of building and running a simulation
 // using Box2D. Here we create a large ground box and a small dynamic
 // box.
@@ -27,6 +45,10 @@
 // with your rendering engine in your game engine.
 int main(int argc, char** argv)
 {
+	int i=4;
+	marker(i, 3, 8);
+	test(2,3);
+
 	B2_NOT_USED(argc);
 	B2_NOT_USED(argv);
 
@@ -84,6 +106,7 @@ int main(int argc, char** argv)
 	int32 velocityIterations = 6;
 	int32 positionIterations = 2;
 
+
 	// This is our little game loop.
 	for (int32 i = 0; i < 60; ++i)
 	{
@@ -100,6 +123,6 @@ int main(int argc, char** argv)
 
 	// When the world destructor is called, all bodies and joints are freed. This can
 	// create orphaned pointers, so be careful about your world management.
-
+	test(4,6);
 	return 0;
 }
